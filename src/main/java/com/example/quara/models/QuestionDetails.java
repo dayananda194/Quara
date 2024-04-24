@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class QuestonDetails extends BaseModel {
+public class QuestionDetails extends BaseModel {
 
        private Long upvote ;
 
