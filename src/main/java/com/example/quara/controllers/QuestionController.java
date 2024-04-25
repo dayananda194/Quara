@@ -4,10 +4,9 @@ import com.example.quara.models.Question;
 import com.example.quara.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 import org.springframework.http.HttpStatus;
 
 @RestController
@@ -31,5 +30,22 @@ public class QuestionController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getQuestionById(@PathVariable Long id) {
+            Question question = questionService.findById(id);
+            if(question == null) {
+                String error = "The Required Question  with id  "+id+"  is not found";
+                return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(question,HttpStatus.OK);
+
+    }
+//
+//    @PostMapping
+//    public ResponseEntity<Question> createQuestion(@RequestBody Question question){
+//
+//
+//
+//    }
 
 }

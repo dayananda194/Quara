@@ -5,7 +5,8 @@ import com.example.quara.repositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import javax.swing.text.html.Option;
+import java.util.*;
 
 @Service
 public class QuestionService {
@@ -18,4 +19,11 @@ public class QuestionService {
             return questionRepository.findAll();
 
         }
+
+        public Question findById(Long id)
+        {
+               Optional<Question> optionalQuestion =  questionRepository.findById(id) ;
+               return optionalQuestion.orElse(null);
+        }
+
 }
