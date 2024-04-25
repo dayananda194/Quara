@@ -1,8 +1,7 @@
 package com.example.quara.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +21,7 @@ public class User extends  BaseModel{
     @Column(nullable = false)
     String username;
 
+    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     Date dob;
 

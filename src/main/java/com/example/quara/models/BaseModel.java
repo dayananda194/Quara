@@ -16,6 +16,7 @@ import java.util.Date;
 public abstract  class BaseModel {
 
         @Id
+        //@GeneratedValue(strategy = GenerationType.AUTO)
         protected Long id;
 
         @Column(nullable = false)

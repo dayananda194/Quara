@@ -25,7 +25,7 @@ CREATE TABLE comment
     id           BIGINT       NOT NULL,
     created_at   datetime     NOT NULL,
     updated_at   datetime NULL,
-    comment_type enum('QUESTION','ANSWER','COMMENT') NULL,
+    comment_type  enum('ANSWWER','QUESTION','COMMENT') NULL,
     question_id  BIGINT NULL,
     answer_id    BIGINT NULL,
     comment_id   BIGINT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE user
     created_at datetime     NOT NULL,
     updated_at datetime NULL,
     username   VARCHAR(255) NOT NULL,
-    dob        datetime     NOT NULL,
+    dob        date         NOT NULL,
     CONSTRAINT pk_user PRIMARY KEY (id)
 );
 
