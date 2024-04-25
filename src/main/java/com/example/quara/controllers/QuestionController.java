@@ -23,19 +23,20 @@ public class QuestionController {
     }
 
     @GetMapping
-    public ResponseEntity<Question> getQuestions() {
+    public ResponseEntity<List<Question>> getQuestions() {
         List<Question> questions = questionService.findAll();
        // System.out.println(questions.get(0).getContent());
-        return  new ResponseEntity<>(questions.get(0),HttpStatus.OK);
+        return  new ResponseEntity<>(questions,HttpStatus.OK);
 
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getQuestionById(@PathVariable Long id) {
+    public ResponseEntity<?> getQuestionById(@PathVariable Long id) {   // It returns the ResponseEntity object of any type
             Question question = questionService.findById(id);
             if(question == null) {
+
                 String error = "The Required Question  with id  "+id+"  is not found";
-                return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);  // It accepts two parameters , request body and HTTPStatus Code(an enum)
             }
             return new ResponseEntity<>(question,HttpStatus.OK);
 
