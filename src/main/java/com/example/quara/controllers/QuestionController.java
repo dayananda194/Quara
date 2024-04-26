@@ -48,7 +48,7 @@ public class QuestionController {
     @PostMapping
     public ResponseEntity<?> createQuestion(@RequestBody Question question){
         User user =  question.getUser();
-        System.out.println(user+" in question Controller" +user.getId());
+       // System.out.println(user+" in question Controller" +user.getId());
         Optional<User> reqUser = userService.findById(user.getId());
         if(reqUser.isEmpty())
         {
