@@ -15,13 +15,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" , "user"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" })
 public class Question extends BaseModel{
 
     @Column(nullable = false)
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
 

@@ -12,6 +12,8 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
 
     public Optional<Question> findById(Long id);
 
+    public Question save(Question question);
+
     public List<Question> findByUserId(Long id);
 
 }

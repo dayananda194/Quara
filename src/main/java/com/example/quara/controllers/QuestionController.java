@@ -1,7 +1,9 @@
 package com.example.quara.controllers;
 
 import com.example.quara.models.Question;
+import com.example.quara.models.User;
 import com.example.quara.services.QuestionService;
+import com.example.quara.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +17,12 @@ import org.springframework.http.HttpStatus;
 public class QuestionController {
 
     private QuestionService questionService;
+    private UserService userService;
 
     @Autowired
-    QuestionController(QuestionService questionService) {
+    QuestionController(QuestionService questionService,UserService userService) {
         this.questionService = questionService;
-
+        this.userService = userService;
     }
 
     @GetMapping
@@ -43,10 +46,16 @@ public class QuestionController {
     }
 
     @PostMapping
-    public ResponseEntity<Question> createQuestion(@RequestBody Question question){
-            System.out.println(question);
-            return null;
-
+    public ResponseEntity<?> createQuestion(@RequestBody Question question){
+        User user =  question.getUser();
+        System.out.println(user+" in question Controller" +user.getId());
+        Optional<User> reqUser = userService.findById(user.getId());
+        if(reqUser.isEmpty())
+        {
+            String error = "The   User with id "+user.getId()+" is not found in the database";
+            return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>( questionService.sava(question),HttpStatus.CREATED);
     }
 
 }

@@ -1,6 +1,6 @@
 CREATE TABLE answer
 (
-    id          BIGINT       NOT NULL,
+    id          BIGINT     AUTO_INCREMENT  NOT NULL,
     created_at  datetime     NOT NULL,
     updated_at  datetime NULL,
     content     VARCHAR(255) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE answer
 
 CREATE TABLE answer_details
 (
-    id         BIGINT   NOT NULL,
+    id         BIGINT  AUTO_INCREMENT NOT NULL,
     created_at datetime NOT NULL,
     updated_at datetime NULL,
     upvote     BIGINT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE answer_details
 
 CREATE TABLE comment
 (
-    id           BIGINT       NOT NULL,
+    id           BIGINT    AUTO_INCREMENT   NOT NULL,
     created_at   datetime     NOT NULL,
     updated_at   datetime NULL,
     comment_type  enum('ANSWWER','QUESTION','COMMENT') NULL,
@@ -36,7 +36,7 @@ CREATE TABLE comment
 
 CREATE TABLE comment_details
 (
-    id         BIGINT   NOT NULL,
+    id         BIGINT AUTO_INCREMENT  NOT NULL,
     created_at datetime NOT NULL,
     updated_at datetime NULL,
     upvote     BIGINT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE comment_details
 
 CREATE TABLE question
 (
-    id         BIGINT       NOT NULL,
+    id      BIGINT    AUTO_INCREMENT  NOT NULL,
     created_at datetime     NOT NULL,
     updated_at datetime NULL,
     content    VARCHAR(255) NOT NULL,
