@@ -4,6 +4,7 @@ import com.example.quara.models.Question;
 import com.example.quara.models.User;
 import com.example.quara.services.QuestionService;
 import com.example.quara.services.UserService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 @RestController
 
 @RequestMapping("/questions")
+
 public class QuestionController {
 
     private QuestionService questionService;
