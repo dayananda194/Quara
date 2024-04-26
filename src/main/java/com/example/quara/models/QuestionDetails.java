@@ -20,6 +20,6 @@ public class QuestionDetails extends BaseModel {
        private Long downvote;
 
        @ManyToOne(fetch = FetchType.LAZY)
-       private Question question = new Question();
+       private Question question;
 
 }

@@ -24,10 +24,8 @@ public class UserController {
     // expects id , username , dob
     public ResponseEntity<?> addUser(@RequestBody User user) {
 
-       if(userService.findById(user.getId()).isEmpty()) { // if the user with the given id not present then only we will save the data
-            return new ResponseEntity<>(userService.save(user), HttpStatus.OK);
-       }
-        return new ResponseEntity<>("User is Already Present with ID " + user.getId(), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
+
     }
 
 

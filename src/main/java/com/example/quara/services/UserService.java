@@ -28,7 +28,7 @@ public class UserService {
          return Optional.empty();
     }
 
-    @Query("SELECT u from User u")
+
     public List<User>  findAll()
     {
         System.out.println(userRepository.findAll());
@@ -39,9 +39,7 @@ public class UserService {
 
     public User save(User user) {
 
-        if(!userRepository.existsById(user.getId())) {
             return userRepository.save(user);
-        }
-        return null;
+
     }
 }

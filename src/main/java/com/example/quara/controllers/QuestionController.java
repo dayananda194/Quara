@@ -41,12 +41,12 @@ public class QuestionController {
             return new ResponseEntity<>(question,HttpStatus.OK);
 
     }
-//
-//    @PostMapping
-//    public ResponseEntity<Question> createQuestion(@RequestBody Question question){
-//
-//
-//
-//    }
+
+    @PostMapping
+    public ResponseEntity<Question> createQuestion(@RequestBody Question question){
+            System.out.println(question);
+            return null;
+
+    }
 
 }

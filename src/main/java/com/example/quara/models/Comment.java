@@ -17,16 +17,16 @@ public class Comment extends BaseModel {
     private CommentType commentType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Question question=new Question();
+    private Question question;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Answer answer=new Answer();
+    private Answer answer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Comment comment=new Comment();
+    private Comment comment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user=new User();
+    private User user;
 
     @Column(nullable = false)
     private String content;
